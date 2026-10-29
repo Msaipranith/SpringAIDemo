@@ -24,11 +24,11 @@ public class OllamaController {
 	@ResponseBody
 	public String ask(@RequestParam String question) {
 
-		LOGGER.info("Received Ollama request");
+		LOGGER.info("Received Ollama request : " + question);
 
 		String response = chatClient.prompt().user(question).call().content();
 
-		LOGGER.info("Ollama response generated successfully");
+		LOGGER.info("Ollama response generated successfully : " + response);
 
 		return response != null ? response : "";
 	}
